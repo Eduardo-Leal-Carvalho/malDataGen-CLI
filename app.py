@@ -158,7 +158,7 @@ def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
 
 def help():
     help_text = """
-    Uso: python app.py <comando> [parâmetros]
+    Uso: python3 app.py <comando> [parâmetros]
 
     Comandos disponíveis:
 
