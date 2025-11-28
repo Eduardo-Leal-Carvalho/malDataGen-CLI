@@ -20,7 +20,7 @@ Esta aplicação CLI em Python permite autenticar, consultar datasets, processad
 
 ## 🚀 Instalação
 
-### 1. Clone o repositório:
+### Clone o repositório:
 
 ```bash
 git clone https://github.com/seu-repositorio.git
