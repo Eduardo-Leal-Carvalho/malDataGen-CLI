@@ -3,6 +3,8 @@ import json
 import sys
 from configparser import ConfigParser
 import urllib.request
+from tabulate import tabulate
+
 
 
 def download_file(url, filename):
@@ -55,6 +57,22 @@ def signIn(configObject, userinfo,hostinfo):
     with open('config.ini', 'w') as conf:
         configObject.write(conf)
 
+# ===== PRINT PARAMETERS  =====
+def printParameters(paramsList):
+
+    # Prepara itens para o tabulate
+    tableRows = []
+    for p in paramsList:
+        tableRows.append({
+            "Name": p.get("name", ""),
+            "Type": p.get("type", ""),
+            "Default": p.get("default_value", ""),
+        })
+
+    # Exibe tabela
+    print(tabulate(tableRows, headers="keys", tablefmt="grid"))
+
+
 # ===== DATASETS =====
 def getDatasets(userinfo,hostinfo):
     payload = ""    
@@ -70,7 +88,28 @@ def getDataset(userinfo,hostinfo,datasetID):
 def getProcessors(userinfo,hostinfo):
     payload = ""    
     headers = {'Authorization': f"Bearer {userinfo['idtoken']}"}
-    print(send_request("GET", f"/processor?skip=0&take=20&sort=%5B%7B%22field%22:%22id%22,%20%22order%22:%22ASC%22%7D%5D", payload, headers, hostinfo["baseurl"]))
+    jsonData = json.loads(send_request("GET", f"/processor?skip=0&take=20&sort=%5B%7B%22field%22:%22id%22,%20%22order%22:%22ASC%22%7D%5D", payload, headers, hostinfo["baseurl"]))    
+    
+    processors = []
+
+    for edge in jsonData["edges"]:
+        node = edge["node"]
+
+        # Criar dicionário limpo
+        processors.append({
+            "seq": node["seq"],
+            "id": node["id"],
+            "name": node["name"],
+            "version": node["version"]
+        #    "parameters": paramsStr
+        })
+    
+    print(tabulate(processors, headers="keys", tablefmt="grid"))
+    if("y" == input("Deseja visualizar parametros de algum processador? (y/n): ")):
+        procID = int(input("Digite a seq do processador: "))
+        printParameters(jsonData['edges'][procID-1]['node']['configuration']['parameters'])
+
+
 
 def getProcessor(userinfo,hostinfo, processorID):
     payload = ""    
