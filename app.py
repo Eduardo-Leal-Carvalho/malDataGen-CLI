@@ -77,13 +77,39 @@ def printParameters(paramsList):
 def getDatasets(userinfo,hostinfo):
     payload = ""    
     headers = {'Authorization': f"Bearer {userinfo['idtoken']}"}
-    print(send_request("GET", "/dataset", payload, headers, hostinfo["baseurl"]))
+    jsonData = json.loads(send_request("GET", "/dataset", payload, headers, hostinfo["baseurl"]))
+    
+    datasets = []
+
+    for edge in jsonData["edges"]:
+        node = edge["node"]
+
+        # Criar dicionário limpo
+        datasets.append({
+            "seq": node["seq"],
+            "id": node["id"],
+            "description": node["description"],
+        })
+    print(tabulate(datasets, headers="keys", tablefmt="grid"))
+
 
 def getDataset(userinfo,hostinfo,datasetID):
     payload = ""    
     headers = {'Authorization': f"Bearer {userinfo['idtoken']}"}
-    print(send_request("GET", f"/dataset/{datasetID}", payload, headers, hostinfo["baseurl"]))
+    jsonData = json.loads(send_request("GET", f"/dataset/{datasetID}", payload, headers, hostinfo["baseurl"]))
+    print(jsonData)
+    
+    dataset = []
 
+    # Criar dicionário limpo
+    dataset.append({
+        "seq": jsonData["seq"],
+        "id": jsonData["id"],
+        "description": jsonData["description"],
+    })
+    print(tabulate(dataset, headers="keys", tablefmt="grid"))
+    
+    
 # ===== PROCESSORS =====
 def getProcessors(userinfo,hostinfo):
     payload = ""    
@@ -101,7 +127,6 @@ def getProcessors(userinfo,hostinfo):
             "id": node["id"],
             "name": node["name"],
             "version": node["version"]
-        #    "parameters": paramsStr
         })
     
     print(tabulate(processors, headers="keys", tablefmt="grid"))
@@ -114,7 +139,18 @@ def getProcessors(userinfo,hostinfo):
 def getProcessor(userinfo,hostinfo, processorID):
     payload = ""    
     headers = {'Authorization': f"Bearer {userinfo['idtoken']}"}
-    print(send_request("GET", f"/processor/{processorID}", payload, headers, hostinfo["baseurl"]))
+    jsonData = json.loads(send_request("GET", f"/processor/{processorID}", payload, headers, hostinfo["baseurl"]))
+
+    processor = []
+
+    # Criar dicionário limpo
+    processor.append({
+        "seq": jsonData["seq"],
+        "id": jsonData["id"],
+        "name": jsonData["name"],
+        "version": jsonData["version"]
+    })
+    print(tabulate(processor, headers="keys", tablefmt="grid"))
 
 def percorreListaProcesses(data):
     listMetrics = []
