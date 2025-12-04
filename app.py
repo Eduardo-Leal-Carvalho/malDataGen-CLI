@@ -211,25 +211,41 @@ def getProcesse(userinfo,hostinfo,id):
             print(f"Baixando Results...")
             download_file(data["result_file"]["public_url"], f"zips/results{data['id']}.zip")
         
-    
+
 def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
+
+    payload = ""    
+    headers = {'Authorization': f"Bearer {userinfo['idtoken']}"}
+    jsonData = json.loads(send_request("GET", f"/processor/{processorID}", payload, headers, hostinfo["baseurl"]))
+
+    sendingParameters = []
+
+    for parameter in jsonData["configuration"]["parameters"]:
+        print(f"{parameter['name']}: {parameter['default_value']} [{parameter['type']}]")
+        parameterInput = input("Pressione Enter para pular alteração ou digite novo valor: ")
+        print("-"*25)
+        if parameterInput != "":
+            sendingParameters. append({
+                "name": parameter["name"],
+                "value": parameterInput
+            })
+        else:
+            sendingParameters. append({
+                "name": parameter["name"],
+                "value": parameter["default_value"]
+            })
+
     payload = json.dumps({
         "processor_id": processorID,
         "dataset_id": datasetID,
-        "parameters": [{
-                "name": "num_samples_class_malware",
-                "value": "20"
-            },
-            {
-                "name": "num_samples_class_benign",
-                "value": "20"
-        }]
+        "parameters": sendingParameters
     })
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f"Bearer {userinfo['idtoken']}"
     }
     print(send_request("POST", "/processing", payload, headers, hostinfo["baseurl"]))
+
 
 def help():
     help_text = """
