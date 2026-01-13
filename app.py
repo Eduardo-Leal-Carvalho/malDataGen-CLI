@@ -4,6 +4,7 @@ import sys
 from configparser import ConfigParser
 import urllib.request
 from tabulate import tabulate
+import os
 
 
 
@@ -187,12 +188,13 @@ def getProcesses(userinfo,hostinfo):
     resp = input("Deseja baixar as metrics e results de todos os arquivos? (s/n): ")
 
     if resp.lower() == 's':
-        print("Criando pasta zips")
+        
         for i in range(len(metrics)):
+            os.mkdir(f"{metrics[i]['id']}")
             print(f"Baixando Metrics [{metrics[i]['id']}]...")
-            download_file(metrics[i]["public_url"], f"zips/dataset{metrics[i]['id']}.zip")
+            download_file(metrics[i]["public_url"], f"{metrics[i]['id']}/dataset{metrics[i]['id']}.zip")
             print(f"Baixando Results [{metrics[i]['id']}]...")
-            download_file(results[i]["public_url"], f"zips/results{results[i]['id']}.zip")
+            download_file(results[i]["public_url"], f"{metrics[i]['id']}/results{results[i]['id']}.zip")
 
 def getProcesse(userinfo,hostinfo,id):
     payload = ""
@@ -205,11 +207,11 @@ def getProcesse(userinfo,hostinfo,id):
         resp = input("Deseja baixar as metrics e results de todos os arquivos? (s/n): ")
 
         if resp.lower() == 's':
-            print("Criando pasta")
+            os.mkdir(f"{data['id']}")
             print(f"Baixando Metrics...")
-            download_file(data["metrics_file"]["public_url"], f"zips/metrics_{data['id']}.zip")
+            download_file(data["metrics_file"]["public_url"], f"{data['id']}/metrics_{data['id']}.zip")
             print(f"Baixando Results...")
-            download_file(data["result_file"]["public_url"], f"zips/results{data['id']}.zip")
+            download_file(data["result_file"]["public_url"], f"{data['id']}/results{data['id']}.zip")
         
 
 def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
@@ -220,21 +222,20 @@ def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
 
     sendingParameters = []
 
-    for parameter in jsonData["configuration"]["parameters"]:
+    for parameter in jsonData['configuration']['parameters']:
         print(f"{parameter['name']}: {parameter['default_value']} [{parameter['type']}]")
         parameterInput = input("Pressione Enter para pular alteração ou digite novo valor: ")
         print("-"*25)
         if parameterInput != "":
-            sendingParameters. append({
-                "name": parameter["name"],
-                "value": parameterInput
-            })
-        else:
-            sendingParameters. append({
-                "name": parameter["name"],
-                "value": parameter["default_value"]
-            })
+            parameter["default_value"] = parameterInput
+            #66017bbd-321b-40f5-b984-8da85bda915d 4768aeec-ea54-4f5f-b5cf-c1a7e3c1109f
 
+        sendingParameters. append({
+            "name": parameter["name"],
+            "value": parameter["default_value"]
+        })
+    print(sendingParameters)
+    """
     payload = json.dumps({
         "processor_id": processorID,
         "dataset_id": datasetID,
@@ -245,7 +246,7 @@ def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
         'Authorization': f"Bearer {userinfo['idtoken']}"
     }
     print(send_request("POST", "/processing", payload, headers, hostinfo["baseurl"]))
-
+"""
 
 def help():
     help_text = """
