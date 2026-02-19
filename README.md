@@ -23,8 +23,8 @@ Esta aplicação CLI em Python permite autenticar, consultar datasets, processad
 ### Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/Eduardo-Leal-Carvalho/malDataGen-CLI.git
+cd malDataGen-CLI
 ```
 
 ## ⚙️ Configuração
