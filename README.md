@@ -67,7 +67,7 @@ Lista todos os datasets disponíveis no servidor.
 python app.py getdatasets
 ```
 
-### 🗂️ getdataset <datasetID>
+### 🗂️ getdataset \<datasetID\>
 Retorna informações detalhadas sobre um dataset específico.
 
 ```bash
@@ -81,14 +81,14 @@ Lista todos os processadores registrados.
 python app.py getprocessors
 ```
 
-### 🔎 getprocessor <processorID>
+### 🔎 getprocessor \<processorID\>
 Mostra detalhes de um processador específico.
 
 ```bash
 python app.py getprocessor 10
 ```
 
-### 🧠 requestprocessing <processorID> <datasetID>
+### 🧠 requestprocessing \<processorID\> \<datasetID\>
 Solicita um novo processamento de dataset utilizando um processador específico.
 
 ```bash
@@ -110,7 +110,7 @@ Automática ou individualmente.
 python app.py getprocesses
 ```
 
-### 🔍 getprocesse <processID>
+### 🔍 getprocesse \<processID\>
 Consulta um processo específico e permite baixar seus arquivos.
 
 ```bash
