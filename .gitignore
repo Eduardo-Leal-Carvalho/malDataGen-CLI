@@ -1,1 +1,5 @@
 *.ini
+# Ignore virtual environment folders
+venv/
+.venv/
+*/venv/
