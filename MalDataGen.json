@@ -1,0 +1,610 @@
+{
+    "processor_id": "66017bbd-321b-40f5-b984-8da85bda915d",
+    "processor_name": "MalDataGen",
+    "parameters": [
+        {
+            "name": "adam_optimizer_beta_1",
+            "value": "0.9"
+        },
+        {
+            "name": "adam_optimizer_beta_2",
+            "value": "0.999"
+        },
+        {
+            "name": "adam_optimizer_epsilon",
+            "value": "1e-07"
+        },
+        {
+            "name": "adam_optimizer_learning_rate",
+            "value": "0.001"
+        },
+        {
+            "name": "adversarial_activation_function",
+            "value": "LeakyReLU"
+        },
+        {
+            "name": "adversarial_batch_size",
+            "value": "32"
+        },
+        {
+            "name": "adversarial_dense_layer_sizes_d",
+            "value": "128"
+        },
+        {
+            "name": "adversarial_dense_layer_sizes_g",
+            "value": "128"
+        },
+        {
+            "name": "adversarial_dropout_decay_rate_d",
+            "value": "0.4"
+        },
+        {
+            "name": "adversarial_dropout_decay_rate_g",
+            "value": "0.2"
+        },
+        {
+            "name": "adversarial_file_name_discriminator",
+            "value": "discriminator_model"
+        },
+        {
+            "name": "adversarial_file_name_generator",
+            "value": "generator_model"
+        },
+        {
+            "name": "adversarial_initializer_deviation",
+            "value": "0.5"
+        },
+        {
+            "name": "adversarial_initializer_mean",
+            "value": "0.0"
+        },
+        {
+            "name": "adversarial_last_layer_activation",
+            "value": "Sigmoid"
+        },
+        {
+            "name": "adversarial_latent_dimension",
+            "value": "128"
+        },
+        {
+            "name": "adversarial_latent_mean_distribution",
+            "value": "0.0"
+        },
+        {
+            "name": "adversarial_latent_stander_deviation",
+            "value": "1.0"
+        },
+        {
+            "name": "adversarial_loss_discriminator",
+            "value": "binary_crossentropy"
+        },
+        {
+            "name": "adversarial_loss_generator",
+            "value": "binary_crossentropy"
+        },
+        {
+            "name": "adversarial_number_epochs",
+            "value": "20"
+        },
+        {
+            "name": "adversarial_path_output_models",
+            "value": "models_saved/"
+        },
+        {
+            "name": "adversarial_smoothing_rate",
+            "value": "0.15"
+        },
+        {
+            "name": "adversarial_training_algorithm",
+            "value": "Adam"
+        },
+        {
+            "name": "classifier",
+            "value": "RandomForest"
+        },
+        {
+            "name": "decision_tree_criterion",
+            "value": "gini"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_activation_output_encoder",
+            "value": "sigmoid"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_batch_size_create_embedding",
+            "value": "128"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_batch_size_training",
+            "value": "64"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_dropout_decay_rate_decoder",
+            "value": "0.4"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_dropout_decay_rate_encoder",
+            "value": "0.2"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_epochs",
+            "value": "1000"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_file_name_decoder",
+            "value": "decoder_model"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_file_name_encoder",
+            "value": "encoder_model"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_initializer_deviation",
+            "value": "0.125"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_initializer_mean",
+            "value": "0.0"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_intermediary_activation_alpha",
+            "value": "0.05"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_intermediary_activation_function",
+            "value": "swish"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_last_layer_activation",
+            "value": "sigmoid"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_latent_dimension",
+            "value": "64"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_loss",
+            "value": "mse"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_mean_distribution",
+            "value": "0.5"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_path_output_models",
+            "value": "models_saved/"
+        },
+        {
+            "name": "denoising_diffusion_autoencoder_stander_deviation",
+            "value": "0.125"
+        },
+        {
+            "name": "denoising_diffusion_ema",
+            "value": "0.999"
+        },
+        {
+            "name": "denoising_diffusion_gaussian_beta_end",
+            "value": "0.02"
+        },
+        {
+            "name": "denoising_diffusion_gaussian_beta_start",
+            "value": "0.0001"
+        },
+        {
+            "name": "denoising_diffusion_gaussian_clip_max",
+            "value": "1.0"
+        },
+        {
+            "name": "denoising_diffusion_gaussian_clip_min",
+            "value": "-1.0"
+        },
+        {
+            "name": "denoising_diffusion_gaussian_time_steps",
+            "value": "1000"
+        },
+        {
+            "name": "denoising_diffusion_latent_dimension",
+            "value": "64"
+        },
+        {
+            "name": "denoising_diffusion_margin",
+            "value": "0.5"
+        },
+        {
+            "name": "denoising_diffusion_time_steps",
+            "value": "1000"
+        },
+        {
+            "name": "denoising_diffusion_unet_batch_size",
+            "value": "128"
+        },
+        {
+            "name": "denoising_diffusion_unet_epochs",
+            "value": "1000"
+        },
+        {
+            "name": "denoising_diffusion_unet_group_normalization",
+            "value": "1"
+        },
+        {
+            "name": "denoising_diffusion_unet_intermediary_activation",
+            "value": "swish"
+        },
+        {
+            "name": "denoising_diffusion_unet_intermediary_activation_alpha",
+            "value": "0.05"
+        },
+        {
+            "name": "denoising_diffusion_unet_last_layer_activation",
+            "value": "linear"
+        },
+        {
+            "name": "denoising_diffusion_unet_num_embedding_channels",
+            "value": "1"
+        },
+        {
+            "name": "denoising_diffusion_unet_num_residual_blocks",
+            "value": "2"
+        },
+        {
+            "name": "early_stop_min_delta",
+            "value": "0.0001"
+        },
+        {
+            "name": "early_stop_mode",
+            "value": "auto"
+        },
+        {
+            "name": "early_stop_monitor",
+            "value": "val_loss"
+        },
+        {
+            "name": "early_stop_patience",
+            "value": "50"
+        },
+        {
+            "name": "early_stop_start_from_epoch",
+            "value": "100"
+        },
+        {
+            "name": "gaussian_process_max_iterations",
+            "value": "20"
+        },
+        {
+            "name": "gaussian_process_optimizer",
+            "value": "fmin_l_bfgs_b"
+        },
+        {
+            "name": "gradient_boosting_criterion",
+            "value": "friedman_mse"
+        },
+        {
+            "name": "gradient_boosting_learning_rate",
+            "value": "0.1"
+        },
+        {
+            "name": "gradient_boosting_loss",
+            "value": "log_loss"
+        },
+        {
+            "name": "gradient_boosting_number_estimators",
+            "value": "100"
+        },
+        {
+            "name": "gradient_boosting_subsample",
+            "value": "1.0"
+        },
+        {
+            "name": "k_means_init",
+            "value": "k-means++"
+        },
+        {
+            "name": "k_means_max_iterations",
+            "value": "300"
+        },
+        {
+            "name": "k_means_number_clusters",
+            "value": "2"
+        },
+        {
+            "name": "k_means_tolerance",
+            "value": "0.0001"
+        },
+        {
+            "name": "knn_algorithm",
+            "value": "auto"
+        },
+        {
+            "name": "knn_leaf_size",
+            "value": "30"
+        },
+        {
+            "name": "knn_metric",
+            "value": "minkowski"
+        },
+        {
+            "name": "knn_number_neighbors",
+            "value": "5"
+        },
+        {
+            "name": "knn_weights",
+            "value": "uniform"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_activation_output_encoder",
+            "value": "sigmoid"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_batch_size_create_embedding",
+            "value": "128"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_batch_size_training",
+            "value": "64"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_dropout_decay_rate_decoder",
+            "value": "0.4"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_dropout_decay_rate_encoder",
+            "value": "0.2"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_epochs",
+            "value": "1000"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_file_name_decoder",
+            "value": "decoder_model"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_file_name_encoder",
+            "value": "encoder_model"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_initializer_deviation",
+            "value": "0.125"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_initializer_mean",
+            "value": "0.0"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_intermediary_activation_alpha",
+            "value": "0.05"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_intermediary_activation_function",
+            "value": "swish"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_last_layer_activation",
+            "value": "sigmoid"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_latent_dimension",
+            "value": "64"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_loss",
+            "value": "mse"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_mean_distribution",
+            "value": "0.5"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_path_output_models",
+            "value": "models_saved/"
+        },
+        {
+            "name": "latent_diffusion_autoencoder_stander_deviation",
+            "value": "0.125"
+        },
+        {
+            "name": "latent_diffusion_ema",
+            "value": "0.999"
+        },
+        {
+            "name": "latent_diffusion_gaussian_beta_end",
+            "value": "0.02"
+        },
+        {
+            "name": "latent_diffusion_gaussian_beta_start",
+            "value": "0.0001"
+        },
+        {
+            "name": "latent_diffusion_gaussian_clip_max",
+            "value": "1.0"
+        },
+        {
+            "name": "latent_diffusion_gaussian_clip_min",
+            "value": "-1.0"
+        },
+        {
+            "name": "latent_diffusion_gaussian_time_steps",
+            "value": "1000"
+        },
+        {
+            "name": "latent_diffusion_latent_dimension",
+            "value": "64"
+        },
+        {
+            "name": "latent_diffusion_margin",
+            "value": "0.5"
+        },
+        {
+            "name": "latent_diffusion_time_steps",
+            "value": "1000"
+        },
+        {
+            "name": "latent_diffusion_unet_batch_size",
+            "value": "128"
+        },
+        {
+            "name": "latent_diffusion_unet_epochs",
+            "value": "1000"
+        },
+        {
+            "name": "latent_diffusion_unet_group_normalization",
+            "value": "1"
+        },
+        {
+            "name": "latent_diffusion_unet_intermediary_activation",
+            "value": "swish"
+        },
+        {
+            "name": "latent_diffusion_unet_intermediary_activation_alpha",
+            "value": "0.05"
+        },
+        {
+            "name": "latent_diffusion_unet_last_layer_activation",
+            "value": "linear"
+        },
+        {
+            "name": "latent_diffusion_unet_num_embedding_channels",
+            "value": "1"
+        },
+        {
+            "name": "latent_diffusion_unet_num_residual_blocks",
+            "value": "2"
+        },
+        {
+            "name": "linear_regression_copy_X",
+            "value": "True"
+        },
+        {
+            "name": "linear_regression_fit_intercept",
+            "value": "True"
+        },
+        {
+            "name": "model_type",
+            "value": "adversarial"
+        },
+        {
+            "name": "naive_bayes_variation_smoothing",
+            "value": "1e-09"
+        },
+        {
+            "name": "number_k_folds",
+            "value": "5"
+        },
+        {
+            "name": "output_dir",
+            "value": "MalDataGen/output/"
+        },
+        {
+            "name": "path_confusion_matrix",
+            "value": "confusion_matrix"
+        },
+        {
+            "name": "path_curve_loss",
+            "value": "training_curve"
+        },
+        {
+            "name": "perceptron_dropout_decay_rate",
+            "value": "0.2"
+        },
+        {
+            "name": "perceptron_last_layer_activation",
+            "value": "sigmoid"
+        },
+        {
+            "name": "perceptron_layer_activation",
+            "value": "relu"
+        },
+        {
+            "name": "perceptron_number_epochs",
+            "value": "1"
+        },
+        {
+            "name": "perceptron_training_algorithm",
+            "value": "Adam"
+        },
+        {
+            "name": "perceptron_training_loss",
+            "value": "binary_crossentropy"
+        },
+        {
+            "name": "quadratic_discriminant_analysis_regularization",
+            "value": "0.0"
+        },
+        {
+            "name": "quadratic_discriminant_analysis_threshold",
+            "value": "0.0001"
+        },
+        {
+            "name": "random_forest_number_estimators",
+            "value": "100"
+        },
+        {
+            "name": "random_noise_level",
+            "value": "0.1"
+        },
+        {
+            "name": "random_noise_type_noise",
+            "value": "uniform"
+        },
+        {
+            "name": "smote_k_neighbors",
+            "value": "2"
+        },
+        {
+            "name": "smote_sampling_strategy",
+            "value": "auto"
+        },
+        {
+            "name": "spectral_affinity",
+            "value": "rbf"
+        },
+        {
+            "name": "spectral_assign_labels",
+            "value": "kmeans"
+        },
+        {
+            "name": "spectral_number_clusters",
+            "value": "8"
+        },
+        {
+            "name": "stochastic_gradient_descent_alpha",
+            "value": "0.0001"
+        },
+        {
+            "name": "stochastic_gradient_descent_loss",
+            "value": "hinge"
+        },
+        {
+            "name": "stochastic_gradient_descent_max_iterations",
+            "value": "1000"
+        },
+        {
+            "name": "stochastic_gradient_descent_penalty",
+            "value": "l2"
+        },
+        {
+            "name": "stochastic_gradient_descent_tolerance",
+            "value": "0.001"
+        },
+        {
+            "name": "support_vector_machine_gamma",
+            "value": "scale"
+        },
+        {
+            "name": "support_vector_machine_kernel",
+            "value": "rbf"
+        },
+        {
+            "name": "support_vector_machine_kernel_degree",
+            "value": "3"
+        },
+        {
+            "name": "support_vector_machine_regularization",
+            "value": "1.0"
+        },
+        {
+            "name": "verbosity",
+            "value": "20"
+        }
+    ]
+}

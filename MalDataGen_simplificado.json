@@ -1,0 +1,10 @@
+{
+    "processor_id": "66017bbd-321b-40f5-b984-8da85bda915d",
+    "processor_name": "MalDataGen",
+    "parameters": [
+        {
+            "name": "verbosity",
+            "value": "20"
+        }
+    ]
+}
