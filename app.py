@@ -235,7 +235,7 @@ def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
             "value": parameter["default_value"]
         })
     print(sendingParameters)
-    """
+    
     payload = json.dumps({
         "processor_id": processorID,
         "dataset_id": datasetID,
@@ -246,7 +246,7 @@ def requestDatasetProcessing(userinfo,hostinfo, processorID,datasetID):
         'Authorization': f"Bearer {userinfo['idtoken']}"
     }
     print(send_request("POST", "/processing", payload, headers, hostinfo["baseurl"]))
-"""
+
 
 def help():
     help_text = """
