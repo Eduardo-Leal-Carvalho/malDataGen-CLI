@@ -1,2 +1,4 @@
 *.ini
-MalDataGen-CLI/
+# Ignore virtual environment folders
+venv/
+.venv/
